@@ -1,11 +1,15 @@
 import { HttpStatus } from '../common/enums/http-status.enum';
 
 class AppError extends Error {
-  private statusCode: HttpStatus | number;
-  private status: 'fail' | 'error';
-  private isOperational: boolean;
-  private errors: any;
-  constructor(message: string, statusCode: HttpStatus, errors = undefined) {
+  readonly statusCode: HttpStatus | number;
+  readonly status: 'fail' | 'error';
+  readonly isOperational: boolean;
+  readonly errors: any;
+  constructor(
+    message: string,
+    statusCode: HttpStatus | number,
+    errors = undefined
+  ) {
     // console.log({ message });
     super(message);
 

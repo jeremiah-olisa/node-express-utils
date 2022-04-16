@@ -1,7 +1,7 @@
-import { Response } from 'express';
-import { HttpStatus } from '../common/enums/http-status.enum';
-import { HttpAction } from '../common/enums/http-action.enum';
 import CustomHttpResponse from '../common/types/custom-http-response';
+import { HttpAction } from '../common/enums/http-action.enum';
+import { HttpStatus } from '../common/enums/http-status.enum';
+import { Response } from 'express';
 
 const response = {
   success: function<TData, TMeta>(
@@ -37,23 +37,23 @@ const response = {
     if (!statusCode) {
       if (!response.success && Array.isArray(response?.message))
         status = HttpStatus.BAD_REQUEST;
-      if (response.success == false) status = HttpStatus.BAD_REQUEST;
-      if (response.success == false && response.data == null)
+      if (response.success === false) status = HttpStatus.BAD_REQUEST;
+      if (response.success === false && response.data === null)
         status = HttpStatus.NOT_FOUND;
       if (
-        response.success == true &&
+        response.success === true &&
         response.data != null &&
         action === 'create'
       )
         status = HttpStatus.CREATED;
       if (
-        response.success == true &&
+        response.success === true &&
         response.data != null &&
         (action === 'read' || action === 'update')
       )
         status = HttpStatus.OK;
       if (
-        response.success == true &&
+        response.success === true &&
         response.data != null &&
         action === 'delete'
       )
@@ -82,23 +82,23 @@ const response = {
     if (!statusCode) {
       if (!response.success && Array.isArray(response?.message))
         status = HttpStatus.BAD_REQUEST;
-      if (response.success == false) status = HttpStatus.BAD_REQUEST;
-      if (response.success == false && response.data == null)
+      if (response.success === false) status = HttpStatus.BAD_REQUEST;
+      if (response.success === false && response.data === null)
         status = HttpStatus.NOT_FOUND;
       if (
-        response.success == true &&
+        response.success === true &&
         response.data != null &&
         action === 'create'
       )
         status = HttpStatus.CREATED;
       if (
-        response.success == true &&
+        response.success === true &&
         response.data != null &&
         (action === 'read' || action === 'update')
       )
         status = HttpStatus.OK;
       if (
-        response.success == true &&
+        response.success === true &&
         response.data != null &&
         action === 'delete'
       )
