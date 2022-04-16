@@ -9,14 +9,14 @@ import _mongoFactory from './mongoose/factory';
 import _response from './mongoose/response-handler';
 
 export const AppError = _appError;
-export const catchAsync = _catchAsync
-export const dbConnect = _connect
-export const mongoFactory = _mongoFactory
-export const FilterObj = _filterObj
-export const globalErrorHandler = _globalErrorHandler
-export const responseHandler = _response
-export const APIFeatures = _apiFeatures
-export const middleware = _middleware
+export const catchAsync = _catchAsync;
+export const dbConnect = _connect;
+export const mongoFactory = _mongoFactory;
+export const FilterObj = _filterObj;
+export const globalErrorHandler = _globalErrorHandler;
+export const responseHandler = _response;
+export const APIFeatures = _apiFeatures;
+export const middleware = _middleware;
 
 // export const AppError = _appError
 // export const AppError = _appError

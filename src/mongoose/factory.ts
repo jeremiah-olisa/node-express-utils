@@ -1,6 +1,7 @@
-import AppError from './app-error';
+import mongoose, { ObjectId, Model as SchemaModel } from 'mongoose';
+
 import APIFeatures from '../api/api-features';
-import mongoose, { Model as SchemaModel, ObjectId } from 'mongoose';
+import AppError from './app-error';
 import { NextFunction } from 'express';
 
 export async function exists<TModel>(
@@ -36,10 +37,11 @@ async function deleteOne<TModel>(
 
 async function deleteMany<TModel>(
   Model: SchemaModel<TModel, {}, {}, {}>,
-  ids: any[]
+  ids: mongoose.Types.ObjectId[]
 ) {
+  // const _ids = ids.map((id) => new mongoose.Types.ObjectId(id))
   const doc = await Model.deleteMany({
-    _id: { $in: ids.map(id => new mongoose.Types.ObjectId(id) as any) },
+    _id: { $in: ids },
   });
 
   return doc;
